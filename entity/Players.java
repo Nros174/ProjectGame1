@@ -1,9 +1,6 @@
 package entity;
 import Main.GamePanel;
 import Main.KeyInput;
-import java.awt.Color;
-import javax.swing.*;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.IOException;
 import javax.imageio.ImageIO;
