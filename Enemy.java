@@ -23,7 +23,7 @@ private int speedx=2;
         }else if(x<0){
             speedx=2;
         }
-        Player.colision();
+        
     }
 
     public static int getspeeed(int speedx){
