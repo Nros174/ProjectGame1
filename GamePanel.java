@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import java.awt.Rectangle;
+import java.util.Currency;
 public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image
     public static final int scale = 3;
@@ -17,7 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
     Thread loop;//do until stop // again and again 60 : 1sec
     Enemy enemy;
     
-
+    int FPS = 60;
     private static int x = 100;
     private static int y = 100;
     private static int speed = 2;//speed walk
@@ -70,10 +71,10 @@ public class GamePanel extends JPanel implements Runnable {
             x = 0;
         }else if(y<0){
             y=0;
-        }else if(x>915){
-            x=915;
-        }else if(y>650){
-            y=650;
+        }else if(x>screenWidth-50){
+            x=screenWidth-50;
+        }else if(y>screenHeight-50){
+            y=screenHeight-50;
         }
     }
 
@@ -92,25 +93,25 @@ public class GamePanel extends JPanel implements Runnable {
    
     }
 
-     //foever run
-     @Override
-     public void run() {
-         // double drawInterval = 1000000000/FPS;
-         // double nextDrawTime = System.nanoTime()+drawInterval;
-         while (loop != null) {
-             System.out.println("in loop");
-             update();
-             enemy.updateE();
-             // try {
-             //     double remainingTime = nextDrawTime - System.nanoTime();
-             //     remainingTime = remainingTime/1000000;
-             //     Thread.sleep((long)remainingTime);
-             // } catch (InterruptedException e) {
-             //     e.printStackTrace();
-             // }
-             repaint();
-         }
-         
+     //foever run      
+    @Override
+    public void run() {
+        double drawInterval = 1000000000/FPS;
+        double delta = 0;
+        long lastTime = System.nanoTime();
+        long currentTime;
+        while (loop != null) {
+            currentTime = System.nanoTime();
+            System.out.println("in loop");
+            delta += (currentTime - lastTime) / drawInterval;
+            lastTime = currentTime;
+            if(delta>=1){
+                update();
+                repaint();
+                delta --;
+            }
+
+        }
      }
 
 
