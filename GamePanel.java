@@ -82,7 +82,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void drawPlayer(Graphics2D g2d){
         g2d.setColor(Color.PINK);
         g2d.fillRect(x,y,GamePanel.titleSize,GamePanel.titleSize);//draw solid box
-        g2d.dispose();
+        // g2d.dispose();
 
     }
 
@@ -100,15 +100,24 @@ public class GamePanel extends JPanel implements Runnable {
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
+        int timer = 0;
+        int drawCount = 0;
         while (loop != null) {
             currentTime = System.nanoTime();
-            System.out.println("in loop");
+            
             delta += (currentTime - lastTime) / drawInterval;
+            timer += (currentTime-lastTime);
             lastTime = currentTime;
             if(delta>=1){
                 update();
                 repaint();
                 delta --;
+                drawCount++;
+            }
+            if(timer>=1000000000){
+                System.out.println("FPS : "+drawCount);
+                drawCount = 0;
+                timer = 0;
             }
 
         }
