@@ -4,6 +4,7 @@ import java.awt.Color;
 import javax.swing.*;
 import javax.swing.JPanel;
 import javax.swing.plaf.DimensionUIResource;
+
 public class Window extends JPanel{
 
     private JFrame Window1;
