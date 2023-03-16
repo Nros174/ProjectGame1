@@ -5,16 +5,14 @@ import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import javax.swing.UIDefaults.ProxyLazyValue;
 
 import BG.BGManager;
 import entity.Players;
-
-import java.awt.Rectangle;
-import java.util.Currency;
 public class GamePanel extends JPanel implements Runnable {
-    public static final int originalTilesize =16;//size image
+    public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;
-    public static final int titleSize = originalTilesize*scale;//on frame
+    public static final int titleSize = originalTilesize*scale;//on frame 48*48
     public static final int maxScreenCol = 16;
     public static final int maxScreenRow =  12;
     public static final int screenWidth = titleSize*maxScreenCol; //760
@@ -24,14 +22,19 @@ public class GamePanel extends JPanel implements Runnable {
     int FPS = 60;
     KeyInput key = new KeyInput();
 
-    Players player = new Players(this, key);
+    public Players player = new Players(this, key);
+
+    //World setting
     BGManager BGM = new  BGManager(this);
+    public final int maxWorldCol  = 50;
+    public final int maxWorldRow  = 50;
+    public final int maxWorldWidth  = titleSize*maxScreenCol;
+    public final int maxWorldHight  = titleSize*maxScreenRow;
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
-        
         startGame();
         setFocusable(true);
         
@@ -49,7 +52,6 @@ public class GamePanel extends JPanel implements Runnable {
         Graphics2D g2d = (Graphics2D)g;
         BGM.draw(g2d);
         player.drawPlayer(g2d);//create player
-        
         g2d.dispose();
     }
 
