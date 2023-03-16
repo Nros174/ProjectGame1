@@ -22,9 +22,6 @@ public class GamePanel extends JPanel implements Runnable {
     
     Thread loop;//do until stop // again and again 60 : 1sec
     int FPS = 60;
-    private static int x = 100;
-    private static int y = 100;
-    private static int speed = 2;//speed walk
     KeyInput key = new KeyInput();
 
     Players player = new Players(this, key);
@@ -32,8 +29,6 @@ public class GamePanel extends JPanel implements Runnable {
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        Color MazecColor = new Color(95,195,20);
-        this.setBackground(MazecColor);
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
         
@@ -65,12 +60,6 @@ public class GamePanel extends JPanel implements Runnable {
 
    
 
-
-    //player meet enemy
-    public static void colision() {
-  
-   
-    }
 
      //foever run      
     @Override
