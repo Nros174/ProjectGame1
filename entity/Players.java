@@ -18,14 +18,14 @@ public class Players extends Entity{
 
     public void getPlayerImg(){
         try{
-            U1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_up_1.png"));
-            U2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_up_2.png"));
-            D1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_down_1.png"));
-            D2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_down_2.png"));
-            L1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_left_1.png"));
-            L2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_left_2.png"));
-            R1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_right_1.png"));
-            R2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/boy_right_2.png"));
+            U1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_up_1.png"));
+            U2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_up_2.png"));
+            D1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_down_1.png"));
+            D2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_down_2.png"));
+            L1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_left_1.png"));
+            L2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_left_2.png"));
+            R1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_right_1.png"));
+            R2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_right_2.png"));
         }catch(IOException e){
             e.printStackTrace();
         }
@@ -120,7 +120,7 @@ public class Players extends Entity{
             
                 
         }
-        g2d.drawImage(image,x,y,GamePanel.titleSize,GamePanel.titleSize,null);//draw solid box
+        g2d.drawImage(image,x,y,GP.titleSize,GP.titleSize,null);//draw solid box
 
     }
 }

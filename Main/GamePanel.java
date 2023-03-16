@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+import BG.BGManager;
 import entity.Players;
 
 import java.awt.Rectangle;
@@ -27,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable {
     KeyInput key = new KeyInput();
 
     Players player = new Players(this, key);
+    BGManager BGM = new  BGManager(this);
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -50,7 +52,9 @@ public class GamePanel extends JPanel implements Runnable {
     public void paint(Graphics g) {
         super.paint(g);
         Graphics2D g2d = (Graphics2D)g;
+        BGM.draw(g2d);
         player.drawPlayer(g2d);//create player
+        
         g2d.dispose();
     }
 
