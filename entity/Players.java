@@ -1,17 +1,24 @@
 package entity;
-import Main.GamePanel;
-import Main.KeyInput;
 import java.awt.Graphics2D;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import Main.GamePanel;
+import Main.KeyInput;
+
 import java.awt.image.BufferedImage;
 public class Players extends Entity{
     GamePanel GP;
     KeyInput key;
 
+    public final int screenX;
+    public final int screenY;
+
     public Players(GamePanel GP,KeyInput key) {
         this.GP = GP;
         this.key = key;
+        screenX = GP.screenWidth/2-(GP.titleSize/2);
+        screenY = GP.screenHeight/2-(GP.titleSize/2);
         setdefaultValues();
         getPlayerImg();
     }
@@ -32,8 +39,8 @@ public class Players extends Entity{
     }
 
     private void setdefaultValues() {
-        x = 100;
-        y = 100;
+        WorldX = GP.titleSize*16;//start X
+        WorldY = GP.titleSize*16;//Start Y
         speed = 4;
         direction= "down";
     }
@@ -43,29 +50,29 @@ public class Players extends Entity{
         if(key.UP==true||key.DP==true||key.LP==true||key.RP==true){
             if(key.RP == true){
                 direction = "right";
-                x += speed;
+                WorldX += speed;
             }
             else if(key.LP == true){
                 direction= "left";
-                x -= speed;
+                WorldX -= speed;
             }
             else if(key.UP == true){
                 direction = "up";
-                y -= speed;
+                WorldY -= speed;
             }
             else if(key.DP == true){
                 direction = "down";
-                y +=speed;
+                WorldY +=speed;
             }
 
-            if(x<0){
-                x = 0;
-            }else if(y<0){
-                y=0;
-            }else if(x>GamePanel.screenWidth-50){
-                x=GamePanel.screenWidth-50;
-            }else if(y>GamePanel.screenHeight-50){
-                y=GamePanel.screenHeight-50;
+            if(WorldX<0){
+                WorldX = 0;
+            }else if(WorldY<0){
+                WorldY=0;
+            }else if(WorldX>GamePanel.screenWidth-50){
+                WorldX=GamePanel.screenWidth-50;
+            }else if(WorldY>GamePanel.screenHeight-50){
+                WorldY=GamePanel.screenHeight-50;
             }
             spriteCounter++;
             if(spriteCounter>20){
@@ -120,7 +127,7 @@ public class Players extends Entity{
             
                 
         }
-        g2d.drawImage(image,x,y,GP.titleSize,GP.titleSize,null);//draw solid box
+        g2d.drawImage(image,screenX,screenY,GP.titleSize,GP.titleSize,null);//draw solid box
 
     }
 }
