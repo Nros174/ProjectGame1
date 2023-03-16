@@ -17,7 +17,7 @@ public class Window extends JPanel{
         Window1.add(GamePanel);
         Window1.pack();
         Window1.setLocationRelativeTo(null);//set window to center
-        Window1.setVisible(true);//open window
+        Window1.setVisible(true);
     }
     
 }
