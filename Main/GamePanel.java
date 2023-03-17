@@ -14,7 +14,7 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int scale = 3;
     public static final int titleSize = originalTilesize*scale;//on frame
     public static final int maxScreenCol = 25;
-    public static final int maxScreenRow =  20;
+    public static final int maxScreenRow =  23;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
     
@@ -37,7 +37,6 @@ public class GamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
         startGame();
->>>>>>> 3ec093e2054666da2b69641543bea82cfc16e3d0
         setFocusable(true);
         
     }

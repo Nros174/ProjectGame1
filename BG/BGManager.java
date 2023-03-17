@@ -23,10 +23,10 @@ public class BGManager {
     public void getBGImg() {
         try {
             BG[0] = new BG();
-            BG[0].image= ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/grass.png"));
+            BG[0].image= ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/earth.png"));
 
             BG[1] = new BG();
-            BG[1].image= ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/earth.png"));
+            BG[1].image= ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/grass.png"));
 
             BG[2] = new BG();
             BG[2].image= ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/tree.png"));
