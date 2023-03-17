@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import BG.BGManager;
+import Objects.superObject;
 import entity.Players;
 public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image 16*16
@@ -28,17 +29,25 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxWorldRow  = 50;
     public final int maxWorldWidth  = titleSize*maxScreenCol;
     public final int maxWorldHight  = titleSize*maxScreenRow;
-
+    
     public CollisionChecker Checker = new CollisionChecker(this);
+
+    public superObject obj[] = new superObject[10];
+    public AssetSetter aSetter = new AssetSetter(this);
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
+        setupGame();
         startGame();
         setFocusable(true);
         
+    }
+
+    public void setupGame(){
+        aSetter.setObject();
     }
 
     public void startGame(){
@@ -46,21 +55,11 @@ public class GamePanel extends JPanel implements Runnable {
         loop.start();
     }
 
-    //camera
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Graphics2D g2d = (Graphics2D)g;
-        BGM.draw(g2d);
-        player.drawPlayer(g2d);//create player
-        g2d.dispose();//delete
-    }
-
     //walk
     public void update(){
         player.update();
     }
-    
+
      //foever run      
     @Override
     public void run() {
@@ -91,6 +90,21 @@ public class GamePanel extends JPanel implements Runnable {
 
         }
      }
+
+      //camera
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        Graphics2D g2d = (Graphics2D)g;
+        BGM.draw(g2d);//BG
+        for(int i =0;i<obj.length;i++){
+            if(obj[i] != null ){
+                obj[i].draw(g2d,this);
+            }  
+        }//obj
+        player.drawPlayer(g2d);//create player
+        g2d.dispose();//delete
+    }
 
 
 }

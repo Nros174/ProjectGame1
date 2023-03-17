@@ -18,8 +18,8 @@ public class Players extends Entity{
     public Players(GamePanel GP,KeyInput key) {
         this.GP = GP;
         this.key = key;
-        screenX = GP.screenWidth/2-(GP.titleSize);
-        screenY = GP.screenHeight/2-(GP.titleSize);
+        screenX = GP.screenWidth/2-(GP.titleSize/2);
+        screenY = GP.screenHeight/2-(GP.titleSize/2);
         soidArea = new Rectangle();
         soidArea.x = 8;
         soidArea.y = 16;
@@ -46,8 +46,8 @@ public class Players extends Entity{
     }
     //position and speed andwalk all map
     private void setdefaultValues() {
-        WorldX = GP.titleSize*25;//start X
-        WorldY = GP.titleSize*25;//Start Y
+        WorldX = GP.titleSize*26;//start X
+        WorldY = GP.titleSize*26;//Start Y
         speed = 4;
         direction= "down";
     }
@@ -70,16 +70,16 @@ public class Players extends Entity{
                 direction = "down";
             }
 
-            //board
-            if(WorldX<0){
-                WorldX = 0;
-            }else if(WorldY<0){
-                WorldY=0;
-            }else if(WorldX>GP.screenWidth-50){
-                WorldX=GP.screenWidth-50;
-            }else if(WorldY>GP.screenHeight-50){
-                WorldY=GamePanel.screenHeight-50;
-            }
+            // //board
+            // if(WorldX<0){
+            //     WorldX = 0;
+            // }else if(WorldY<0){
+            //     WorldY=0;
+            // }else if(WorldX>GP.screenWidth-50){
+            //     WorldX=GP.screenWidth-50;
+            // }else if(WorldY>GP.screenHeight-50){
+            //     WorldY=GamePanel.screenHeight-50;
+            // }
 
             //check BG cillostion
             collisionOn = false;

@@ -37,6 +37,10 @@ public class BGManager {
             BG[2].image = ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/tree.png"));
             BG[2].collision = true;// not walk
 
+            BG[3] = new BG();
+            BG[3].image = ImageIO.read(getClass().getResourceAsStream("/BG/img_BG/water.png"));
+            BG[3].collision = true;// not walk
+
         } catch (IOException e) {
             e.printStackTrace();
         }

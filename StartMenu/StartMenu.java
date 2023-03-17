@@ -6,12 +6,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.crypto.spec.PBEKeySpec;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 import Main.GamePanel;
+import Main.Window;
+
 import java.awt.FlowLayout;
 import java.awt.Font;
 
@@ -33,8 +33,6 @@ public class StartMenu extends JPanel implements ActionListener {
         StartM.setSize(760,576);
         StartM.setResizable(false);
         StartM.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // StartM.getContentPane().setBackground(Color.);
-        //StartM.getContentPane().setLayout(null);
         imgpanel = new JPanel();
         panel = new JPanel();
         startgamenow();
@@ -94,6 +92,9 @@ public class StartMenu extends JPanel implements ActionListener {
         if (source == startButton) {
             // Code to start the game
             System.out.println("HI");
+            Window newGame = new Window();
+            newGame.setVisible(1 != 0);  
+            StartM.setVisible(false);          
             
             // dispose(); // Close the start menu window
         } else if (source == exitButton) {
