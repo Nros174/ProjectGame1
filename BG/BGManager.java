@@ -14,7 +14,7 @@ public class BGManager {
     BG[] BG;
     int mapBGNUM[][];
     public BGManager(GamePanel GP){
-        this.BG =BG;
+        this.GP =GP;
         BG = new BG[10];
         mapBGNUM = new int[GP.maxWorldCol][GP.maxWorldRow];
         getBGImg();
@@ -71,7 +71,6 @@ public class BGManager {
             int WorldY = Worldrow *GP.titleSize;
             int screenX = WorldX-GP.player.WorldX+GP.player.screenX;
             int screenY = WorldY-GP.player.WorldY+GP.player.screenY;
-            System.out.println(GP);
             g2d.drawImage(BG[BGNum].image,screenX,screenY,GP.titleSize,GP.titleSize,null);
             Worldcol++;
 

@@ -13,8 +13,8 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;
     public static final int titleSize = originalTilesize*scale;//on frame 48*48
-    public static final int maxScreenCol = 16;
-    public static final int maxScreenRow =  12;
+    public static final int maxScreenCol = 25;
+    public static final int maxScreenRow =  20;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
     
@@ -33,8 +33,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        Color MazecColor = new Color(95,195,20);
-        this.setBackground(MazecColor);
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
         startGame();
