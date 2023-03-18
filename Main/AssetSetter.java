@@ -19,5 +19,13 @@ public class AssetSetter {
         GP.obj[1].WorldX = 31*GP.titleSize;
         GP.obj[1].WorldY = 40*GP.titleSize;
 
+        GP.obj[2] = new OBJ_Suicun();
+        GP.obj[2].WorldX = 27*GP.titleSize;
+        GP.obj[2].WorldY = 19*GP.titleSize;
+
+        GP.obj[3] = new OBJ_Suicun();
+        GP.obj[3].WorldX = 15*GP.titleSize;
+        GP.obj[3].WorldY = 40*GP.titleSize;
+
     }
 }

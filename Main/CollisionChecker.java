@@ -57,53 +57,52 @@ public class CollisionChecker {
         }
 
     }
-}
-    // public int checkOBJ(Entity entity,boolean player) {
-    //      int index = 999;
-    //      for(int i=0;i<GP.obj.length;i++){
-    //         if(GP.obj != null){
-    //             entity.solidArea.x = entity.WorldX + entity.solidArea.x;
-    //             entity.solidArea.y = entity.WorldY + entity.solidArea.y;
+    //Chack obj and palyer
+    public int checkOBJ(Entity entity,boolean player) {
+         int index = 999;
+         for(int i=0;i<GP.obj.length;i++){
+            if(GP.obj[i] != null){
+                entity.solidArea.x = entity.WorldX + entity.solidArea.x;
+                entity.solidArea.y = entity.WorldY + entity.solidArea.y;
 
-    //             GP.obj[i].solidArea.x = GP.obj[i].WorldX + GP.obj[i].solidArea.x;
-    //             GP.obj[i].solidArea.y = GP.obj[i].WorldY + GP.obj[i].solidArea.y;
-    //             int BGNum1 , BGNum2;
-    //     switch(entity.direction){
-    //         case "up":
-    //         entity.solidArea.y -= entity.speed;
-    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
-    //             System.out.println("UP colliscion");
-    //         }
-    //         break;
-    //         case "down":
-    //         entity.solidArea.y += entity.speed;
-    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
-    //             System.out.println("down colliscion");
-    //         }
-    //         break;
-    //         case "left":
-    //         entity.solidArea.x -= entity.speed;
-    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
-    //             System.out.println("left colliscion");
-    //         }
-    //         break;
-    //         case "right":
-    //         entity.solidArea.x += entity.speed;if(entity.solidArea.intersection(GP.obj[i].solidArea)){
-    //             System.out.println("rightcolliscion");
-    //         }
+                GP.obj[i].solidArea.x = GP.obj[i].WorldX + GP.obj[i].solidArea.x;
+                GP.obj[i].solidArea.y = GP.obj[i].WorldY + GP.obj[i].solidArea.y;
+                int BGNum1 , BGNum2;
+        switch(entity.direction){
+            case "up":
+            entity.solidArea.y -= entity.speed;
+            if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+                System.out.println("UP colliscion");
+            }
+            break;
+            case "down":
+            entity.solidArea.y += entity.speed;
+            if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+                System.out.println("down colliscion");
+            }
+            break;
+            case "left":
+            entity.solidArea.x -= entity.speed;
+            if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+                System.out.println("left colliscion");
+            }
+            break;
+            case "right":
+            entity.solidArea.x += entity.speed;if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+                System.out.println("rightcolliscion");
+            }
 
 
-    //         break;
-    //     }
-    //     entity.solidArea.x = entity.solidAreaDefaultX;
-    //     entitY.solidArea.y = entity.solidAreaDefaultd;
-    //     GP.obj[i].solidArea.x = entity.solidAreaDefaultdX;
-    //     cP[i].solidArea.y = entity.solidAreaDefaultdY;
-    //         }
+            break;
+        }
+        entity.solidArea.x = entity.solidAreaDefaultX;
+        entity.solidArea.y = entity.solidAreaDefaultX;
+        GP.obj[i].solidArea.x = entity.solidAreaDefaultX;
+        GP.obj[i].solidArea.y = entity.solidAreaDefaultY;
+            }
             
-    //         }
+        }
 
-    //      }
-//          return index;
-//     }
-// }
+         return index;
+    }
+}
