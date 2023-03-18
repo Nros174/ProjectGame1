@@ -20,11 +20,13 @@ public class Players extends Entity{
         this.key = key;
         screenX = GP.screenWidth/2-(GP.titleSize/2);
         screenY = GP.screenHeight/2-(GP.titleSize/2);
-        soidArea = new Rectangle();
-        soidArea.x = 8;
-        soidArea.y = 16;
-        soidArea.width = GP.titleSize/2;
-        soidArea.height = GP.titleSize/2;
+        solidArea = new Rectangle();
+        solidArea.x = 8;
+        solidArea.y = 16;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+        solidArea.width = GP.titleSize/2;
+        solidArea.height = GP.titleSize/2;
         setdefaultValues();
         getPlayerImg();
     }

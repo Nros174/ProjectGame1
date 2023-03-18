@@ -10,10 +10,10 @@ public class CollisionChecker {
     }
     //check player(soliArea) and tree
     public void CheckBG(Entity entity){
-        int entityLeftWoldX = entity.WorldX + entity.soidArea.x;
-        int entityRightWoldX = entity.WorldX + entity.soidArea.x + entity.soidArea.width;
-        int entityTopWoldY = entity.WorldY + entity.soidArea.y;
-        int entityBottomWoldY = entity.WorldY + entity.soidArea.y + entity.soidArea.height;
+        int entityLeftWoldX = entity.WorldX + entity.solidArea.x;
+        int entityRightWoldX = entity.WorldX + entity.solidArea.x + entity.solidArea.width;
+        int entityTopWoldY = entity.WorldY + entity.solidArea.y;
+        int entityBottomWoldY = entity.WorldY + entity.solidArea.y + entity.solidArea.height;
 
         int entityLeftCol = entityLeftWoldX/GP.titleSize;
         int entityRightCol = entityRightWoldX/GP.titleSize;
@@ -55,5 +55,55 @@ public class CollisionChecker {
             }
             break;
         }
+
     }
 }
+    // public int checkOBJ(Entity entity,boolean player) {
+    //      int index = 999;
+    //      for(int i=0;i<GP.obj.length;i++){
+    //         if(GP.obj != null){
+    //             entity.solidArea.x = entity.WorldX + entity.solidArea.x;
+    //             entity.solidArea.y = entity.WorldY + entity.solidArea.y;
+
+    //             GP.obj[i].solidArea.x = GP.obj[i].WorldX + GP.obj[i].solidArea.x;
+    //             GP.obj[i].solidArea.y = GP.obj[i].WorldY + GP.obj[i].solidArea.y;
+    //             int BGNum1 , BGNum2;
+    //     switch(entity.direction){
+    //         case "up":
+    //         entity.solidArea.y -= entity.speed;
+    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+    //             System.out.println("UP colliscion");
+    //         }
+    //         break;
+    //         case "down":
+    //         entity.solidArea.y += entity.speed;
+    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+    //             System.out.println("down colliscion");
+    //         }
+    //         break;
+    //         case "left":
+    //         entity.solidArea.x -= entity.speed;
+    //         if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+    //             System.out.println("left colliscion");
+    //         }
+    //         break;
+    //         case "right":
+    //         entity.solidArea.x += entity.speed;if(entity.solidArea.intersection(GP.obj[i].solidArea)){
+    //             System.out.println("rightcolliscion");
+    //         }
+
+
+    //         break;
+    //     }
+    //     entity.solidArea.x = entity.solidAreaDefaultX;
+    //     entitY.solidArea.y = entity.solidAreaDefaultd;
+    //     GP.obj[i].solidArea.x = entity.solidAreaDefaultdX;
+    //     cP[i].solidArea.y = entity.solidAreaDefaultdY;
+    //         }
+            
+    //         }
+
+    //      }
+//          return index;
+//     }
+// }

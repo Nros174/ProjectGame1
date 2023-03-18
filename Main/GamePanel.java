@@ -6,8 +6,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import BG.BGManager;
-import Objects.superObject;
 import entity.Players;
+import entity.Objects.superObject;
 public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;

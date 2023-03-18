@@ -50,8 +50,8 @@ public class StartMenu extends JPanel implements ActionListener {
         exitButton = new JButton("Exit");
         exitButton.setPreferredSize(new Dimension(widthbuttons,heightbuttons));
         try {
-            img1 = new ImageIcon(getClass().getResource("Map/STARTGAME.png"));
-            img2 = new ImageIcon(getClass().getResource("Map/EXISTGAME.png"));
+            img1 = new ImageIcon(getClass().getResource("BG/STARTGAME.png"));
+            img2 = new ImageIcon(getClass().getResource("BG/EXISTGAME.png"));
             startButton.setIcon(img1);
             exitButton.setIcon(img2);
         } catch (Exception e) {
@@ -66,7 +66,7 @@ public class StartMenu extends JPanel implements ActionListener {
         panel.add(exitButton);
 
         // Create a JLabel with an ImageIcon as its content
-        ImageIcon bgImage = new ImageIcon(getClass().getResource("Map/headgame.jpg"));
+        ImageIcon bgImage = new ImageIcon(getClass().getResource("BG/headgame.jpg"));
         JLabel bgLabel = new JLabel(bgImage);
         bgLabel.setBounds(0, 0, bgImage.getIconWidth(), bgImage.getIconHeight());
 

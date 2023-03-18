@@ -1,6 +1,7 @@
 package Main;
 
-import Objects.OBJ_crown;
+import entity.Objects.OBJ_Suicun;
+import entity.Objects.OBJ_crown;
 
 public class AssetSetter {
     GamePanel GP;
@@ -13,6 +14,10 @@ public class AssetSetter {
         GP.obj[0] = new OBJ_crown();
         GP.obj[0].WorldX = 27*GP.titleSize;
         GP.obj[0].WorldY = 27*GP.titleSize;
+
+        GP.obj[1] = new OBJ_Suicun();
+        GP.obj[1].WorldX = 31*GP.titleSize;
+        GP.obj[1].WorldY = 40*GP.titleSize;
 
     }
 }
