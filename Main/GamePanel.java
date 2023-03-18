@@ -5,16 +5,15 @@ import javax.swing.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import javax.swing.UIDefaults.ProxyLazyValue;
-
 import BG.BGManager;
 import entity.Players;
+import entity.Objects.superObject;
 public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;
-    public static final int titleSize = originalTilesize*scale;//on frame 48*48
-    public static final int maxScreenCol = 16;
-    public static final int maxScreenRow =  12;
+    public static final int titleSize = originalTilesize*scale;//on frame
+    public static final int maxScreenCol = 20;
+    public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
     
@@ -30,19 +29,25 @@ public class GamePanel extends JPanel implements Runnable {
     public final int maxWorldRow  = 50;
     public final int maxWorldWidth  = titleSize*maxScreenCol;
     public final int maxWorldHight  = titleSize*maxScreenRow;
+    
+    public CollisionChecker Checker = new CollisionChecker(this);
+
+    public superObject obj[] = new superObject[10];
+    public AssetSetter aSetter = new AssetSetter(this);
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
+        this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // for better render
         this.addKeyListener(key);
-<<<<<<< HEAD
-        
-        // startGame();
-=======
+        setupGame();
         startGame();
->>>>>>> 3ec093e2054666da2b69641543bea82cfc16e3d0
         setFocusable(true);
         
+    }
+
+    public void setupGame(){
+        aSetter.setObject();
     }
 
     public void startGame(){
@@ -50,27 +55,15 @@ public class GamePanel extends JPanel implements Runnable {
         loop.start();
     }
 
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Graphics2D g2d = (Graphics2D)g;
-        BGM.draw(g2d);
-        player.drawPlayer(g2d);//create player
-        g2d.dispose();
-    }
-
     //walk
     public void update(){
         player.update();
     }
 
-   
-
-
      //foever run      
     @Override
     public void run() {
+        //FPS
         double drawInterval = 1000000000/FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -84,8 +77,8 @@ public class GamePanel extends JPanel implements Runnable {
             timer += (currentTime-lastTime);
             lastTime = currentTime;
             if(delta>=1){
-                update();
-                repaint();
+                update(); //update player
+                repaint(); //draw again
                 delta --;
                 drawCount++;
             }
@@ -97,6 +90,21 @@ public class GamePanel extends JPanel implements Runnable {
 
         }
      }
+
+      //camera
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        Graphics2D g2d = (Graphics2D)g;
+        BGM.draw(g2d);//BG
+        for(int i =0;i<obj.length;i++){
+            if(obj[i] != null ){
+                obj[i].draw(g2d,this);
+            }  
+        }//obj
+        player.drawPlayer(g2d);//create player
+        g2d.dispose();//delete
+    }
 
 
 }

@@ -1,5 +1,6 @@
 package entity;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
@@ -19,11 +20,19 @@ public class Players extends Entity{
         this.key = key;
         screenX = GP.screenWidth/2-(GP.titleSize/2);
         screenY = GP.screenHeight/2-(GP.titleSize/2);
+        solidArea = new Rectangle();
+        solidArea.x = 8;
+        solidArea.y = 16;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+        solidArea.width = GP.titleSize/2;
+        solidArea.height = GP.titleSize/2;
         setdefaultValues();
         getPlayerImg();
     }
 
     public void getPlayerImg(){
+        //img player
         try{
             U1=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_up_1.png"));
             U2=ImageIO.read(getClass().getResourceAsStream("/entity/PW/potter_up_2.png"));
@@ -37,44 +46,59 @@ public class Players extends Entity{
             e.printStackTrace();
         }
     }
-
+    //position and speed andwalk all map
     private void setdefaultValues() {
-        WorldX = GP.titleSize*16;//start X
-        WorldY = GP.titleSize*16;//Start Y
+        WorldX = GP.titleSize*26;//start X
+        WorldY = GP.titleSize*26;//Start Y
         speed = 4;
         direction= "down";
     }
 
     //walk
     public void update(){
+        //player img
         if(key.UP==true||key.DP==true||key.LP==true||key.RP==true){
             if(key.RP == true){
                 direction = "right";
-                WorldX += speed;
             }
             else if(key.LP == true){
                 direction= "left";
-                WorldX -= speed;
+
             }
             else if(key.UP == true){
                 direction = "up";
-                WorldY -= speed;
             }
             else if(key.DP == true){
                 direction = "down";
-                WorldY +=speed;
             }
 
-            if(WorldX<0){
-                WorldX = 0;
-            }else if(WorldY<0){
-                WorldY=0;
-            }else if(WorldX>GamePanel.screenWidth-50){
-                WorldX=GamePanel.screenWidth-50;
-            }else if(WorldY>GamePanel.screenHeight-50){
-                WorldY=GamePanel.screenHeight-50;
+            // //board
+            // if(WorldX<0){
+            //     WorldX = 0;
+            // }else if(WorldY<0){
+            //     WorldY=0;
+            // }else if(WorldX>GP.screenWidth-50){
+            //     WorldX=GP.screenWidth-50;
+            // }else if(WorldY>GP.screenHeight-50){
+            //     WorldY=GamePanel.screenHeight-50;
+            // }
+
+            //check BG cillostion
+            collisionOn = false;
+            GP.Checker.CheckBG(this);
+            
+            //if collision is false player can move
+            if(collisionOn == false){
+                switch(direction){
+                    case "up": WorldY -= speed; break;
+                    case "down": WorldY +=speed; break;
+                    case "left": WorldX -= speed; break;
+                    case "right": WorldX += speed; break;
+                }
             }
+
             spriteCounter++;
+
             if(spriteCounter>20){
                 if(spritNum==1){
                     spritNum=2;
@@ -88,8 +112,7 @@ public class Players extends Entity{
 
      //draw player
      public void drawPlayer(Graphics2D g2d){
-        // g2d.setColor(Color.PINK);
-        // g2d.fillRect(x,y,GamePanel.titleSize,GamePanel.titleSize);//draw solid box
+        //walk player img
         BufferedImage image = null;
         switch(direction){
             case"up":
