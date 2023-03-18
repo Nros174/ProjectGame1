@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import BG.BGManager;
 import entity.Players;
 import entity.Objects.superObject;
+import entity.Players;
 public class GamePanel extends JPanel implements Runnable {
     public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;
@@ -16,6 +17,7 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
+    Players countscoreforGP;
     
     Thread loop;//do until stop // again and again 60 : 1sec
     int FPS = 60;
@@ -34,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     public superObject obj[] = new superObject[10];
     public AssetSetter aSetter = new AssetSetter(this);
+    public UI ui = new UI(this);
 
     GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -103,6 +106,13 @@ public class GamePanel extends JPanel implements Runnable {
             }  
         }//obj
         player.drawPlayer(g2d);//create player
+
+        //UI
+        // if(countscoreforGP.score == 3){
+        //     ui.draw(g2d);
+        // }
+        
+        
         g2d.dispose();//delete
     }
 

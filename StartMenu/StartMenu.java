@@ -93,7 +93,7 @@ public class StartMenu extends JPanel implements ActionListener {
             // Code to start the game
             System.out.println("HI");
             Window newGame = new Window();
-            newGame.setVisible(1 != 0);  
+            newGame.setVisible(true);  
             StartM.setVisible(false);          
             
             // dispose(); // Close the start menu window

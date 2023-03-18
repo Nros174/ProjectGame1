@@ -1,9 +1,10 @@
 package entity;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
+import Even.QuizGame;
 import Main.GamePanel;
 import Main.KeyInput;
 
@@ -11,6 +12,8 @@ import java.awt.image.BufferedImage;
 public class Players extends Entity{
     GamePanel GP;
     KeyInput key;
+    Window Game;
+    public int score=0;
 
     public final int screenX;
     public final int screenY;
@@ -89,7 +92,7 @@ public class Players extends Entity{
 
             //check OBJ and player
             int OBJIndex = GP.Checker.checkOBJ(this , true);
-            
+            pickUpObject(OBJIndex);
             //if collision is false player can move
             if(collisionOn == false){
                 switch(direction){
@@ -110,6 +113,14 @@ public class Players extends Entity{
                 }
                 spriteCounter = 0;
             }
+        }
+    }
+
+
+    public void pickUpObject(int i){
+        if(i != 999){
+            GP.obj[i] = null;
+            QuizGame QG = new QuizGame();
         }
     }
 
