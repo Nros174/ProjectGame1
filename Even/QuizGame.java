@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
-import entity.Players;
+import Main.GamePanel;
 
 
 public class QuizGame implements ActionListener {
@@ -17,7 +17,8 @@ public class QuizGame implements ActionListener {
     private int score;
     private ArrayList<Integer> quizIndices;
     Window Game;
-    Players countscore;
+    private GamePanel SC;
+    // public static int scorecount;
     // public Player QI;
 
     private DuolingoQuiz[] quizzes = {
@@ -49,6 +50,8 @@ public class QuizGame implements ActionListener {
     };
 
     public QuizGame() {
+        SC=new GamePanel();
+        // scorecount=0;
         // shuffle the quiz indices
         quizIndices = new ArrayList<Integer>();
         for (int i = 0; i < quizzes.length; i++) {
@@ -119,10 +122,16 @@ public class QuizGame implements ActionListener {
         }
         if (quizzes[quizIndices.get(currentQuizIndex)].getCorrectAnswerIndex() == selectedAnswerIndex) {
             JOptionPane.showMessageDialog(frame, "Correct! You get 1 point.");
-            countscore.score++;
             score++;
+            SC.increasescore();
+            // scorecount++;
+            //SC.increasescore();
+            // countpokemonentity++;
+            
         } else {
             JOptionPane.showMessageDialog(frame, "Incorrect. You get 0 points.");
+            //SC.increasescore();
+            // countpokemonentity++;
         }
 
         // move on to the next quiz or end the quiz
@@ -133,7 +142,6 @@ public class QuizGame implements ActionListener {
         if (currentQuizIndex == 1) {
             JOptionPane.showMessageDialog(frame, "Quiz completed. Your score is " + score + ".");
             // System.exit(0);
-            
             frame.setVisible(false);
 
         } else {

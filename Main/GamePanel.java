@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 import BG.BGManager;
 import entity.Players;
 import entity.Objects.superObject;
-import entity.Players;
+import Even.QuizGame;
 public class GamePanel extends JPanel implements Runnable {
+    private QuizGame quizGame;  
     public static final int originalTilesize =16;//size image 16*16
     public static final int scale = 3;
     public static final int titleSize = originalTilesize*scale;//on frame
@@ -17,7 +18,8 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
-    Players countscoreforGP;
+    public static int scorecount;
+    private int pokemoncount;
     
     Thread loop;//do until stop // again and again 60 : 1sec
     int FPS = 60;
@@ -38,7 +40,10 @@ public class GamePanel extends JPanel implements Runnable {
     public AssetSetter aSetter = new AssetSetter(this);
     public UI ui = new UI(this);
 
-    GamePanel(){
+    public GamePanel(){
+        scorecount=0;
+        pokemoncount=0;
+        // this.quizGame=quizGame;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // for better render
@@ -61,6 +66,12 @@ public class GamePanel extends JPanel implements Runnable {
     //walk
     public void update(){
         player.update();
+    }
+
+    //increase score
+    public void increasescore(){
+        scorecount++;
+        pokemoncount++;
     }
 
      //foever run      
@@ -106,12 +117,18 @@ public class GamePanel extends JPanel implements Runnable {
             }  
         }//obj
         player.drawPlayer(g2d);//create player
-
+        // if(pokemoncount==3){
+        // ui.draw(g2d);
+        // }
         //UI
         // if(countscoreforGP.score == 3){
         //     ui.draw(g2d);
         // }
-        
+        // if(countpokemon.countpokemonentity == 3 ){
+        //     System.out.println("HI");
+
+        // }
+            
         
         g2d.dispose();//delete
     }

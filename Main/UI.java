@@ -3,10 +3,11 @@ package Main;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
-
+import entity.Players;
 public class UI {
     GamePanel gp;
     Font arial_40;
+
 
     public UI(GamePanel gp){
         this.gp=gp;

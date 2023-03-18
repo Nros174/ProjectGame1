@@ -51,8 +51,8 @@ public class Players extends Entity{
     }
     //position and speed andwalk all map
     private void setdefaultValues() {
-        WorldX = GP.titleSize*26;//start X
-        WorldY = GP.titleSize*26;//Start Y
+        WorldX = GP.titleSize*23;//start X
+        WorldY = GP.titleSize*23;//Start Y
         speed = 4;
         direction= "down";
     }
@@ -121,6 +121,7 @@ public class Players extends Entity{
         if(i != 999){
             GP.obj[i] = null;
             QuizGame QG = new QuizGame();
+
         }
     }
 
