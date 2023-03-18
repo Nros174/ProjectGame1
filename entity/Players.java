@@ -86,6 +86,9 @@ public class Players extends Entity{
             //check BG cillostion
             collisionOn = false;
             GP.Checker.CheckBG(this);
+
+            //check OBJ and player
+            int OBJIndex = GP.Checker.checkOBJ(this , true);
             
             //if collision is false player can move
             if(collisionOn == false){
