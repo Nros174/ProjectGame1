@@ -114,8 +114,10 @@ public class GamePanel extends JPanel implements Runnable {
         player.drawPlayer(g2d);//create player
 
 
-        if(PokemonCount ==0){
+        if(PokemonCount == 3){
             ui.endgame(g2d);
+            crownhit = false;
+            g2d.dispose();
         }
         if(crownhit){
             ui.crowndetect(g2d);

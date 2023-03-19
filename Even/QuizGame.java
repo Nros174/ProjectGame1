@@ -134,11 +134,7 @@ public class QuizGame implements ActionListener {
         //     JOptionPane.showMessageDialog(frame, "Quiz completed. Your score is " + score + ".");
         if (currentQuizIndex == 3) {
             // System.exit(0);
-<<<<<<< Updated upstream
-                    if(score == 1 ){//3 || score == 6 || score == 9){
-=======
-                    if(score == 3){
->>>>>>> Stashed changes
+                    if(score == 3 || score == 6 || score == 9){
                         JOptionPane.showMessageDialog(frame, "Quiz completed. You got Pokemon +1");
                         GP.PokemonCount = GP.PokemonCount-1;
                         frame.setVisible(false);
