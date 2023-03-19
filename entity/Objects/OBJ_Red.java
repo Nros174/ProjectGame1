@@ -3,7 +3,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 public class OBJ_Red extends superObject{
     public OBJ_Red(){
-        name = "crown";
+        name = "Red";
         
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/entity/img_OBJ/red_stand_1.png"));

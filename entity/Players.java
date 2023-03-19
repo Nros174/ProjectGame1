@@ -7,18 +7,24 @@ import javax.imageio.ImageIO;
 import Even.QuizGame;
 import Main.GamePanel;
 import Main.KeyInput;
+import UI.GameOver;
 
 import java.awt.image.BufferedImage;
 public class Players extends Entity{
     GamePanel GP;
     KeyInput key;
     Window Game;
+    QuizGame QG;
     public int score=0;
+
 
     public final int screenX;
     public final int screenY;
 
-    public Players(GamePanel GP,KeyInput key) {
+    int Something = 0;
+
+    public Players(GamePanel GP,KeyInput key,QuizGame QG) {
+        this.QG = QG;
         this.GP = GP;
         this.key = key;
         screenX = GP.screenWidth/2-(GP.titleSize/2);
@@ -119,11 +125,29 @@ public class Players extends Entity{
 
     public void pickUpObject(int i){
         if(i != 999){
-            GP.obj[i] = null;
-            QuizGame QG = new QuizGame();
+            String OBJName = GP.obj[i].name;
+            switch(OBJName){
+                case "crown": 
+                System.out.println("hi");
+                break;
+                case "Purugly" :
+                QG.setI(i);
+                new QuizGame();
+                break;
+                case "Red" :
+                QG.setI(i);
+                break;
+                case "Suicun" :
+                QG.setI(i);
+                new QuizGame();
+                break;
+
+            }
+            
 
         }
     }
+
 
      //draw player
      public void drawPlayer(Graphics2D g2d){

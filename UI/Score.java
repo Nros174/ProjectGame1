@@ -1,15 +1,17 @@
-package Main;
+package UI;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+
+import Main.GamePanel;
 import entity.Players;
-public class UI {
+public class Score {
     GamePanel gp;
     Font arial_40;
 
 
-    public UI(GamePanel gp){
+    public Score(GamePanel gp){
         this.gp=gp;
         arial_40 = new Font("Arial",Font.BOLD,40);  
     }
