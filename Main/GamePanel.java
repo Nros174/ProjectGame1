@@ -9,6 +9,7 @@ import BG.BGManager;
 import entity.Players;
 import entity.Objects.superObject;
 import Even.QuizGame;
+import UI.UI;
 public class GamePanel extends JPanel implements Runnable {
     private QuizGame quizGame;  
     public static final int originalTilesize =16;//size image 16*16
@@ -18,13 +19,14 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
-    public static int PokemonCount = 0;
+    public static int PokemonCount = 3;
+    public static boolean crownhit = false;
     QuizGame QG;
     Thread loop;//do until stop // again and again 60 : 1sec
     int FPS = 60;
     KeyInput key = new KeyInput();
-
-    public Players player = new Players(this, key,QG);
+    public UI ui = new UI(this);
+    public Players player = new Players(this, key,QG,ui);
 
     //World setting
     BGManager BGM = new  BGManager(this);
@@ -37,6 +39,8 @@ public class GamePanel extends JPanel implements Runnable {
 
     public superObject obj[] = new superObject[10];
     public AssetSetter aSetter = new AssetSetter(this);
+
+
 
     public GamePanel(){
         this.QG =QG;
@@ -108,8 +112,17 @@ public class GamePanel extends JPanel implements Runnable {
             }  
         }//obj
         player.drawPlayer(g2d);//create player
+
+
+        if(PokemonCount ==0){
+            ui.endgame(g2d);
+        }
+        if(crownhit){
+            ui.crowndetect(g2d);
+        }
         g2d.dispose();//delete
     }
+
 
 
 }

@@ -134,8 +134,9 @@ public class QuizGame implements ActionListener {
         //     JOptionPane.showMessageDialog(frame, "Quiz completed. Your score is " + score + ".");
         if (currentQuizIndex == 1) {
             // System.exit(0);
-                    if(score == 1){
+                    if(score == 1 ){//3 || score == 6 || score == 9){
                         JOptionPane.showMessageDialog(frame, "Quiz completed. You got Pokemon +1");
+                        GP.PokemonCount = GP.PokemonCount-1;
                         frame.setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(frame, "GameOver, you missed your chance to leave Island. Bye!!");

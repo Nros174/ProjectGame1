@@ -7,6 +7,8 @@ import javax.imageio.ImageIO;
 import Even.QuizGame;
 import Main.GamePanel;
 import Main.KeyInput;
+import UI.UI;
+
 import java.awt.image.BufferedImage;
 public class Players extends Entity{
     GamePanel GP;
@@ -15,6 +17,7 @@ public class Players extends Entity{
     QuizGame QG;
     Players player;
     public int score=0;
+    public UI ui;
 
 
     public final int screenX;
@@ -22,7 +25,8 @@ public class Players extends Entity{
 
     int Something = 0;
 
-    public Players(GamePanel GP,KeyInput key,QuizGame QG) {
+    public Players(GamePanel GP,KeyInput key,QuizGame QG,UI ui) {
+        this.ui=ui;
         this.QG = QG;
         this.GP = GP;
         this.key = key;
@@ -127,24 +131,25 @@ public class Players extends Entity{
             String OBJName = GP.obj[i].name;
             switch(OBJName){
                 case "crown": 
-                System.out.println("hi");
+                // System.out.println("hi");
+                GP.crownhit = true;
                 break;
                 case "Purugly" :
                 GP.obj[i] = null;
                 new QuizGame();
-                GP.PokemonCount = GP.PokemonCount+1;
+                //GP.PokemonCount = GP.PokemonCount+1;
                 System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
                 case "Red" :
                 GP.obj[i] = null;
                 new QuizGame();
-                GP.PokemonCount = GP.PokemonCount+1;
+                //GP.PokemonCount = GP.PokemonCount+1;
                 System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
                 case "Suicun" :
                 GP.obj[i] = null;
                 new QuizGame();
-                GP.PokemonCount = GP.PokemonCount+1;
+                //GP.PokemonCount = GP.PokemonCount+1;
                 System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
 
