@@ -9,8 +9,6 @@ import BG.BGManager;
 import entity.Players;
 import entity.Objects.superObject;
 import Even.QuizGame;
-import UI.GameOver;
-import UI.Score;
 public class GamePanel extends JPanel implements Runnable {
     private QuizGame quizGame;  
     public static final int originalTilesize =16;//size image 16*16
@@ -20,13 +18,8 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
-    public static int scorecount;
-    private int pokemoncount;
-    public boolean OVER = false;
-    QuizGame frame;
+    public static int PokemonCount = 0;
     QuizGame QG;
-    GameOver GO;
-    
     Thread loop;//do until stop // again and again 60 : 1sec
     int FPS = 60;
     KeyInput key = new KeyInput();
@@ -44,13 +37,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     public superObject obj[] = new superObject[10];
     public AssetSetter aSetter = new AssetSetter(this);
-    public Score score = new Score(this);
 
     public GamePanel(){
-        scorecount=0;
-        pokemoncount=0;
-        this.GO = GO;
-        // this.quizGame=quizGame;
+        this.QG =QG;
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
         this.setDoubleBuffered(true); // for better render
@@ -59,13 +48,6 @@ public class GamePanel extends JPanel implements Runnable {
         startGame();
         setFocusable(true);
         
-    }
-
-    public void GameOverscreen(boolean Over){
-        if(Over == true){
-            // QuizGame.getClose;
-            GO.drawGameOver();
-        }
     }
 
     public void setupGame(){
@@ -81,12 +63,6 @@ public class GamePanel extends JPanel implements Runnable {
     //walk
     public void update(){
         player.update();
-    }
-
-    //increase score
-    public void increasescore(int num){
-        scorecount++;
-        pokemoncount++;
     }
 
      //foever run      
@@ -132,11 +108,6 @@ public class GamePanel extends JPanel implements Runnable {
             }  
         }//obj
         player.drawPlayer(g2d);//create player
-        if(pokemoncount==3){
-        score.draw(g2d);
-        }
-            
-        
         g2d.dispose();//delete
     }
 

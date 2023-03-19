@@ -16,11 +16,10 @@ public class QuizGame implements ActionListener {
     private JRadioButton[] answerButtons;
     private JButton submitButton;
     private int currentQuizIndex;
-    private int score;
+    private int score ;
     private ArrayList<Integer> quizIndices;
     Window Game;
     public GamePanel GP;
-    int k;
     
 
     private Quiz[] quizzes = {
@@ -52,8 +51,6 @@ public class QuizGame implements ActionListener {
     };
 
     public QuizGame() {
-        // GP=new GamePanel();
-        // scorecount=0;
         // shuffle the quiz indices
         quizIndices = new ArrayList<Integer>();
         for (int j = 0; j < quizzes.length; j++) {
@@ -87,6 +84,7 @@ public class QuizGame implements ActionListener {
         frame.setSize(400, 200);
         frame.setVisible(true);
         frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
 
         // display the first quiz
         currentQuizIndex = 0;
@@ -137,11 +135,11 @@ public class QuizGame implements ActionListener {
         if (currentQuizIndex == 1) {
             // System.exit(0);
                     if(score == 1){
-                        GP.obj[k] = null;
                         JOptionPane.showMessageDialog(frame, "Quiz completed. You got Pokemon +1");
                         frame.setVisible(false);
-                    }
-                    else{
+                    }else{
+                        JOptionPane.showMessageDialog(frame, "GameOver, you missed your chance to leave Island. Bye!!");
+                        // frame.setVisible(false);
                         System.exit(0);
                     }
                
@@ -151,20 +149,12 @@ public class QuizGame implements ActionListener {
         }
     }
 
-    public void setI(int i){
-        k = i;
-        
-    }
-
-
     
     public void actionPerformed(ActionEvent event) {
         if (event.getSource() == submitButton) {
             checkAnswer();
         }
     }
-
-   
 
 }
 

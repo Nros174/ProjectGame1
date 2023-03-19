@@ -32,6 +32,7 @@ public class StartMenu extends JPanel implements ActionListener {
         StartM = new JFrame("Menu");
         StartM.setSize(760,576);
         StartM.setResizable(false);
+       StartM.setLocationRelativeTo(null);
         StartM.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         imgpanel = new JPanel();
         panel = new JPanel();
