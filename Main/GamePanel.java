@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
     public static final int maxScreenRow =  16;
     public static final int screenWidth = titleSize*maxScreenCol; //760
     public static final int screenHeight = titleSize*maxScreenRow; //576
-    public static int PokemonCount = 3;
+    public static int PokemonCount = 3;//have pokemon
     public static boolean crownhit = false;
     QuizGame QG;
     Thread loop;//do until stop // again and again 60 : 1sec
