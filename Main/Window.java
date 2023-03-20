@@ -7,7 +7,7 @@ public class Window extends JPanel{
     private JFrame Window1;
     private GamePanel GamePanel;
     public Window(){
-        Window1 = new JFrame("Potter Find the Po");
+        Window1 = new JFrame("Potter’s Adventures: Answer & Catch");
         GamePanel = new GamePanel();
         Window1.setResizable(false);//zoom in zoom out
         Window1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

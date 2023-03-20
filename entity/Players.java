@@ -15,9 +15,8 @@ public class Players extends Entity{
     KeyInput key;
     Window Game;
     QuizGame QG;
-    Players player;
-    public int score=0;
     public UI ui;
+
 
 
     public final int screenX;
@@ -84,17 +83,6 @@ public class Players extends Entity{
                 direction = "down";
             }
 
-            // //board
-            // if(WorldX<0){
-            //     WorldX = 0;
-            // }else if(WorldY<0){
-            //     WorldY=0;
-            // }else if(WorldX>GP.screenWidth-50){
-            //     WorldX=GP.screenWidth-50;
-            // }else if(WorldY>GP.screenHeight-50){
-            //     WorldY=GamePanel.screenHeight-50;
-            // }
-
             //check BG cillostion
             collisionOn = false;
             GP.Checker.CheckBG(this);
@@ -111,7 +99,7 @@ public class Players extends Entity{
                     case "right": WorldX += speed; break;
                 }
             }
-
+            //count step
             spriteCounter++;
 
             if(spriteCounter>20){
@@ -131,26 +119,19 @@ public class Players extends Entity{
             String OBJName = GP.obj[i].name;
             switch(OBJName){
                 case "crown": 
-                // System.out.println("hi");
                 GP.crownhit = true;
                 break;
                 case "Purugly" :
                 GP.obj[i] = null;
                 new QuizGame();
-                //GP.PokemonCount = GP.PokemonCount+1;
-                System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
                 case "Red" :
                 GP.obj[i] = null;
                 new QuizGame();
-                //GP.PokemonCount = GP.PokemonCount+1;
-                System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
                 case "Suicun" :
                 GP.obj[i] = null;
                 new QuizGame();
-                //GP.PokemonCount = GP.PokemonCount+1;
-                System.out.println("Pokemon :"+GP.PokemonCount);
                 break;
 
             }

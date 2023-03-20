@@ -7,6 +7,7 @@ import Main.GamePanel;
 
 
 
+
 public class QuizGame implements ActionListener {
 
     public static Object getClose;
@@ -20,6 +21,7 @@ public class QuizGame implements ActionListener {
     private ArrayList<Integer> quizIndices;
     Window Game;
     public GamePanel GP;
+    
     
 
     private Quiz[] quizzes = {
@@ -130,17 +132,13 @@ public class QuizGame implements ActionListener {
 
         // move on to the next quiz or end the quiz
         currentQuizIndex++;
-        // if (currentQuizIndex == 12) {
-        //     JOptionPane.showMessageDialog(frame, "Quiz completed. Your score is " + score + ".");
         if (currentQuizIndex == 3) {
-            // System.exit(0);
                     if(score == 3 || score == 6 || score == 9){
                         JOptionPane.showMessageDialog(frame, "Quiz completed. You got Pokemon +1");
                         GP.PokemonCount = GP.PokemonCount-1;
                         frame.setVisible(false);
                     }else{
                         JOptionPane.showMessageDialog(frame, "GameOver, you missed your chance to leave Island. Bye!!");
-                        // frame.setVisible(false);
                         System.exit(0);
                     }
                
