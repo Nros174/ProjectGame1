@@ -6,7 +6,7 @@ public class OBJ_Suicun extends superObject{
         name = "Suicun";
         
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/entity/img_OBJ/suicun_stand_1.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/entity/img_OBJ/suicun_stand_1.gif"));
             
         } catch (IOException e) {
             e.printStackTrace();

@@ -123,13 +123,25 @@ public class Players extends Entity{
                 break;
                 case "Purugly" :
                 GP.obj[i] = null;
+                key.UP=false;
+                key.DP =false;
+                key.LP =false;
+                key.RP =false;
                 new QuizGame();
                 break;
                 case "Red" :
                 GP.obj[i] = null;
+                key.UP=false;
+                key.DP =false;
+                key.LP =false;
+                key.RP =false;
                 new QuizGame();
                 break;
                 case "Suicun" :
+                key.UP=false;
+                key.DP =false;
+                key.LP =false;
+                key.RP =false;
                 GP.obj[i] = null;
                 new QuizGame();
                 break;

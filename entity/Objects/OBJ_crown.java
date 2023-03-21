@@ -6,7 +6,7 @@ public class OBJ_crown extends superObject{
         name = "crown";
         
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/entity/img_OBJ/crown.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/entity/img_OBJ/crown.gif"));
             
         } catch (IOException e) {
             e.printStackTrace();
