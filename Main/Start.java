@@ -39,7 +39,7 @@ public class Start extends JPanel implements ActionListener {
         startButton.addActionListener(this);
         exitButton.addActionListener(this);
         
-        frame = new JFrame("Potter's Quiz");
+        frame = new JFrame("Potter’s Adventures: Answer & Catch");
         frame.add(myLabel);
         frame.setSize(700, 523);
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);

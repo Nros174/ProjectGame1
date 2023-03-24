@@ -117,33 +117,38 @@ public class Players extends Entity{
     public void pickUpObject(int i){
         if(i != 999){
             String OBJName = GP.obj[i].name;
+
             switch(OBJName){
                 case "crown": 
                 GP.crownhit = true;
+                GP.obj[i] = null;
                 break;
+
                 case "Purugly" :
                 GP.obj[i] = null;
+                new QuizGame();
                 key.UP=false;
                 key.DP =false;
                 key.LP =false;
                 key.RP =false;
-                new QuizGame();
                 break;
+
                 case "Red" :
                 GP.obj[i] = null;
-                key.UP=false;
-                key.DP =false;
-                key.LP =false;
-                key.RP =false;
                 new QuizGame();
-                break;
-                case "Suicun" :
                 key.UP=false;
                 key.DP =false;
                 key.LP =false;
                 key.RP =false;
+                break;
+
+                case "Suicun" :
                 GP.obj[i] = null;
                 new QuizGame();
+                key.UP=false;
+                key.DP =false;
+                key.LP =false;
+                key.RP =false;
                 break;
 
             }
